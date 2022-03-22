@@ -11,10 +11,22 @@ public class FPSWalk : MonoBehaviour
     bool safe = false;
     float counttodie=5;
     public AudioSource warning;
+    public GameObject SaldaLuz;
+    public GameObject PointLight1;
+    public GameObject PointLight2;
+    public GameObject PointLight3;
+    public GameObject PointLight4;
+    //public GameObject LuzVermelha;
+
     // Start is called before the first frame update
     void Start()
     {
         positionToGo = transform.position;
+        PointLight1.SetActive(true);
+        PointLight2.SetActive(true);
+        PointLight3.SetActive(true);
+        PointLight4.SetActive(true);
+        //LuzVermelha.SetActive(false);
     }
 
     // Update is called once per frame
@@ -45,8 +57,23 @@ public class FPSWalk : MonoBehaviour
 
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "SaldaLuz")
+        {
+            Debug.Log("Encostou");
+            PointLight1.SetActive(false);
+            PointLight2.SetActive(false);
+            PointLight3.SetActive(false);
+            PointLight4.SetActive(false);
+            //LuzVermelha.SetActive(true);
+            Destroy(collision.gameObject);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.CompareTag("Walkable"))
         {
             print("Safe");
