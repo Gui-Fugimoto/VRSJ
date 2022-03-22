@@ -22,9 +22,9 @@ public class Raycaster : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out RaycastHit hit, 6))
         {
 
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+            // Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             //coloca o nome do objeto na frente do raio na saida de debug
-            textDebug.text = hit.transform.name;
+            // textDebug.text = hit.transform.name;
             //posiciona o crosshair no ponto de impacto do raio
             crosshair.transform.position = hit.point;
             //crosshair.transform.forward = hit.normal;

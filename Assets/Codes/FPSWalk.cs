@@ -49,7 +49,7 @@ public class FPSWalk : MonoBehaviour
         }
         else
         {
-            counttodie = 5;
+            counttodie = 15;
             warning.volume = Mathf.Lerp(warning.volume, 0, Time.deltaTime);
         }
 
