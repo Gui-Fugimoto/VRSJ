@@ -67,6 +67,7 @@ public class Raycaster : MonoBehaviour
                 if (counter < 0)
                 {
                     hit.transform.gameObject.SendMessageUpwards("ItemPickUp");
+                    hit.transform.gameObject.SendMessageUpwards("ButtonAction");//
                     counter = 3;//reseta o contador
                     Debug.Log("dota2");
                     

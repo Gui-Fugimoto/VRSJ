@@ -17,7 +17,7 @@ public class VRSimulator : MonoBehaviour
     {
         //teste no editor este cara nao roda no celular
 #if (UNITY_EDITOR)
-        Cursor.lockState = CursorLockMode.Locked; //linha q trava o mousena tela
+       //Cursor.lockState = CursorLockMode.Locked; //linha q trava o mousena tela
 
         //movimento de pescoço na camera
         Vector3 neckmov = new Vector3(-Input.GetAxis("Mouse Y"), 0, 0);
