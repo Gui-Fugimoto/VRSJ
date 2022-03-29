@@ -46,7 +46,7 @@ public class Raycaster : MonoBehaviour
                     counter = 3;//reseta o contador
                 }
             } // senao verifica se o objeto é com o tag andavel
-            else if(hit.transform.gameObject.CompareTag("Walkable"))
+            else if (hit.transform.gameObject.CompareTag("Walkable"))
             {
                 crosshair.GetComponent<Image>().CrossFadeColor(Color.blue, .5f, false, false);
                 counter -= Time.deltaTime;
@@ -57,6 +57,21 @@ public class Raycaster : MonoBehaviour
                     counter = 3;//reseta o contador
                 }
             }
+            else if (hit.transform.gameObject.CompareTag("Item"))
+            {
+                //troca cor do crosshair
+                crosshair.GetComponent<Image>().CrossFadeColor(Color.green, .5f, false, false);
+                //decrementa o contador 
+                counter -= Time.deltaTime;
+                //se o contador for < 0 chama a funça no objeto ButtonAction()
+                if (counter < 0)
+                {
+                    hit.transform.gameObject.SendMessageUpwards("ItemPickUp");
+                    counter = 3;//reseta o contador
+                    Debug.Log("dota2");
+                    
+                }
+            } // senao verifica se o objeto é com o tag andavel
             else
             {
                 //se nao for nada disso reseta o contador
