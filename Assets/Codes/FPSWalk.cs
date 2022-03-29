@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class FPSWalk : MonoBehaviour
 {
+
     public AudioSource steps;
     public CharacterController character;
     public Vector3 positionToGo;
@@ -16,6 +17,10 @@ public class FPSWalk : MonoBehaviour
     public GameObject PointLight2;
     public GameObject PointLight3;
     public GameObject PointLight4;
+
+
+   // [SerializeField] private UI_Inventory uiInventory;
+   // private Inventory inventory;
     //public GameObject LuzVermelha;
 
     // Start is called before the first frame update
@@ -28,6 +33,12 @@ public class FPSWalk : MonoBehaviour
         PointLight4.SetActive(true);
         //LuzVermelha.SetActive(false);
     }
+
+    //private void Awake()
+    //{
+    //    inventory = new Inventory();
+     //   uiInventory.SetInventory(inventory);
+   // }
 
     // Update is called once per frame
     void Update()
