@@ -12,7 +12,7 @@ public class Keypad : MonoBehaviour
 
     public GameObject CanvasSenha;
 
-
+    public float delay = 2f;
     void Start()
     {
         
@@ -24,6 +24,19 @@ public class Keypad : MonoBehaviour
         
     }
 
+    IEnumerator SumirCanvasCorreto()
+    {
+        yield return new WaitForSeconds(2);
+        CanvasSenha.SetActive(false);
+    }
+
+    IEnumerator SumirCanvasIncorreto()
+    {
+        yield return new WaitForSeconds(2);
+        CanvasSenha.SetActive(false);
+        Ans.text = "";
+    }
+
     public void Number(int number)
     {
         Ans.text += number.ToString();
@@ -33,12 +46,17 @@ public class Keypad : MonoBehaviour
     {
         if(Ans.text == Answer)
         {
+            StartCoroutine(SumirCanvasCorreto());
             Ans.text = "Correto";
-            CanvasSenha.SetActive(false);
+            //CanvasSenha.SetActive(false);
         }
         else
         {
+            
             Ans.text = "Incorreto";
+            StartCoroutine(SumirCanvasIncorreto());
+           // Ans.text = "";
+
         }
     }
 }
