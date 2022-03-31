@@ -6,7 +6,10 @@ public class ItemGrabber : MonoBehaviour
 {
     public GameObject Item;
     public GameObject ItemLocation;
-    
+
+    public GameObject CanvasInventario;
+    public GameObject CanvasBotaoInventario;
+
     public GameObject mainCamera;
     public GameObject crossHairImage;
     public GameObject buttonExitInspection;
@@ -31,6 +34,8 @@ public class ItemGrabber : MonoBehaviour
         mainCamera.GetComponent<FollowGyro>().enabled = false;
         crossHairImage.SetActive(false);
         buttonExitInspection.SetActive(true);
+        CanvasInventario.SetActive(false);
+        CanvasBotaoInventario.SetActive(false);
 
         Item.GetComponent<ItemRotator>().enabled = true;
         Item.GetComponent<ItemSizeIncreaser>().enabled = true;
@@ -40,7 +45,9 @@ public class ItemGrabber : MonoBehaviour
 
     public void ExitInspection()
     {
-        
+        CanvasInventario.SetActive(true);
+        CanvasBotaoInventario.SetActive(true);
+
         mainCamera.GetComponent<VRSimulator>().enabled = true;
         mainCamera.GetComponent<Raycaster>().enabled = true;
         mainCamera.GetComponent<FollowGyro>().enabled = true;

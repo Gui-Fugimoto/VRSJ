@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ExitInspectionButton : MonoBehaviour
 {
+    public GameObject CanvasInventario;
+    public GameObject CanvasBotaoInventario;
 
     public GameObject mainCamera;
     public GameObject crossHairImage;
@@ -29,7 +31,11 @@ public class ExitInspectionButton : MonoBehaviour
         crossHairImage.SetActive(true);
         buttonExitInspection.SetActive(false);
 
+       // CanvasInventario.SetActive(true);
+        CanvasBotaoInventario.SetActive(true);
+
         FindObjectOfType<ItemDestroyer>().DestroyItem();
+
         
     }
 }
